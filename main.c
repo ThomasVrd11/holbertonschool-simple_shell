@@ -9,7 +9,7 @@ int main()
 {
 	char *input_line;
 	char **parsed_command;
-	/* cc colas, prompt pour le user*/
+	
 	while (1)
 	{
 		printf("simple_shell> ");
@@ -25,7 +25,6 @@ int main()
 		{
 			free(input_line);
 			break;
-			/*cc colas, exit si le user ecrit exit*/
 		}
 		parsed_command = parse_input(input_line);
 
