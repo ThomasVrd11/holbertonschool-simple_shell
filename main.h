@@ -16,6 +16,7 @@
 /*---------FUNCTIONS---------*/
 
 char *read_user_input();
+char **parse_input(char *input_line);
 
 /*---------THE_END----------*/
 
