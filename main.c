@@ -31,23 +31,13 @@ int main()
 
 		if (parsed_command[0])
 		{
-			if (is_command_executable(parsed_command[0]))
-			{
-				execute_command(parsed_command);
-			}
+			execute_command(parsed_command);
 		}
 		else
 		{
 			printf("Error: Command not found");
 		}
-		/**
-		 * ona  besoin de logique pour 
-		 * execute la commande parsed
-		 * avec des builtins 
-		 *
-		 *
-		 *
-		 */
+		
 		free(parsed_command);
 		free(input_line);
 	}

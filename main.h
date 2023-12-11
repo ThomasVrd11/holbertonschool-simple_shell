@@ -12,11 +12,14 @@
 #include <sys/stat.h>
 #include <stddef.h>
 #include <string.h>
+#include <stdbool.h>
 
 /*---------FUNCTIONS---------*/
 
 char *read_user_input();
 char **parse_input(char *input_line);
+void execute_command(char **parsed_command);
+
 
 /*---------THE_END----------*/
 
