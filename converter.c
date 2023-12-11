@@ -1,5 +1,5 @@
 #include "main.h"
 
 /**
- * Functions for parsing commands, analysis and convering
+ * Functions for parsing commands, analysis and converting
 */
