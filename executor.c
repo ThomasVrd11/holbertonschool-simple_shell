@@ -7,24 +7,38 @@
 char *find_command_in_path(char *command)
 {
 	char *path = getenv("PATH");
+	char *path_copie = strdup(path);
+	if (!path_copie)
+	{
+		perror("strdup");
+		return (NULL);
+	}
+
 	char *directory;
 	char *full_path;
 	struct stat statbuf;
 
-	directory = strtok(path, ":");
+	directory = strtok(path_copie, ":");
 	while (directory != NULL)
 	{
 		full_path = malloc(strlen(directory) + strlen(command) + 2);
+		if (full_path == NULL)
+		{
+			perror("malloc");
+			free(path_copie);
+			return (NULL);
+		}
 		sprintf(full_path, "%s/%s", directory, command);
-
 		if (stat(full_path, &statbuf) == 0 && statbuf.st_mode & S_IXUSR)
 		{
+			free(path_copie);
 			return full_path;
 		}
 
 		free(full_path);
 		directory = strtok(NULL, ":");
 	}
+	free(path_copie);
 	return NULL;
 }
 
@@ -51,14 +65,13 @@ void execute_command(char **parsed_command)
 	}
 	else if (pid > 0)
 	{
-		/* dans le process papounet*/
+		/* dans le process papounet */
 		wait(NULL);
+		free(cmd_path);
 	}
 	else
 	{
 		/* si fork foire */
 		perror("Error creating a new process");
 	}
-
-	free(cmd_path); /* free apres exec*/
 }
