@@ -12,11 +12,19 @@ char *read_user_input()
 	ssize_t characters;
 
 	characters = getline(&input, &buffer_size, stdin);
+
 	if (characters == -1)
 	{
 		free(input);
-		exit(EXIT_FAILURE);
+		if (feof(stdin))
+		{
+			exit(EXIT_FAILURE);
+		}
+		else
+		{
+			perror("read_user_input");
+			exit(EXIT_FAILURE);
+		}
 	}
-	getline(&input, &buffer_size, stdin);
 	return (input);
 }

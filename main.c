@@ -20,12 +20,14 @@ int main(void)
 			printf("\n");
 			break;
 		}
+		input_line[strcspn(input_line, "\n")] = 0;
+
 		if (is_empty(input_line))
 		{
 			free(input_line);
 			continue;
 		}
-		if (strcmp(input_line, "exit\n") == 0)
+		if (strcmp(input_line, "exit") == 0)
 		{
 			free(input_line);
 			break;
