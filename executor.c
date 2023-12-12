@@ -1,13 +1,16 @@
 #include "main.h"
 
 /**
- *
+ * find_command_in_path - chaussure
+ * @command: chaussure
+ * Return: chaussure
  */
 
 char *find_command_in_path(char *command)
 {
 	char *path = getenv("PATH");
 	char *path_copie = strdup(path);
+
 	if (!path_copie)
 	{
 		perror("strdup");
@@ -32,15 +35,21 @@ char *find_command_in_path(char *command)
 		if (stat(full_path, &statbuf) == 0 && statbuf.st_mode & S_IXUSR)
 		{
 			free(path_copie);
-			return full_path;
+			return (full_path);
 		}
 
 		free(full_path);
 		directory = strtok(NULL, ":");
 	}
 	free(path_copie);
-	return NULL;
+	return (NULL);
 }
+
+/**
+ * execute_command - chaussure
+ * @parsed_command: chaussure
+ * Return : chaussure
+ */
 
 void execute_command(char **parsed_command)
 {
