@@ -12,7 +12,7 @@ int main()
 	
 	while (1)
 	{
-		printf("simple_shell> ");
+		printf("(๑˃ᴗ˂)ﻭ ");
 		input_line = read_user_input();
 
 		if (!input_line)
