@@ -5,11 +5,11 @@
  * Return: 0 if the programe runs correctly, otherwise error message
  */
 
-int main()
+int main(void)
 {
 	char *input_line;
 	char **parsed_command;
-	
+
 	while (1)
 	{
 		printf("(๑˃ᴗ˂)ﻭ ");
@@ -40,7 +40,6 @@ int main()
 		{
 			printf("Error: Command not found");
 		}
-		
 		free(parsed_command);
 		free(input_line);
 	}
