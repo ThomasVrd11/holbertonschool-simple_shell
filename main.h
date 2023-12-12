@@ -19,6 +19,7 @@
 char *read_user_input();
 char **parse_input(char *input_line);
 void execute_command(char **parsed_command);
+char *find_command_in_path(char *command);
 
 
 /*---------THE_END----------*/
