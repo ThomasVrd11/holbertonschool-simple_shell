@@ -53,34 +53,46 @@ char *find_command_in_path(char *command)
 
 void execute_command(char **parsed_command)
 {
-	char *cmd_path = find_command_in_path(parsed_command[0]);
-	pid_t pid;
+    char *cmd_path;
+    pid_t pid;
+	extern char **environ;
 
-	if (cmd_path == NULL)
-	{
-		printf("Command not found: %s\n", parsed_command[0]);
-		return;
-	}
+    if (parsed_command[0][0] == '/')
+    {
+        cmd_path = strdup(parsed_command[0]);
+    }
+    else
+    {
+        cmd_path = find_command_in_path(parsed_command[0]);
+    }
 
-	pid = fork();
-	if (pid == 0)
-	{
-		/* dans le chhild process */
-		if (execve(cmd_path, parsed_command, NULL) == -1)
-		{
-			perror("Error executing command");
-			exit(EXIT_FAILURE);
-		}
-	}
-	else if (pid > 0)
-	{
-		/* dans le process papounet */
-		wait(NULL);
-		free(cmd_path);
-	}
-	else
-	{
-		/* si fork foire */
-		perror("Error creating a new process");
-	}
+    if (cmd_path == NULL)
+    {
+        printf("Command not found.\n");
+        return;
+    }
+
+    pid = fork();
+    if (pid == -1)
+    {
+        perror("fork");
+    }
+    else if (pid == 0) // Child process
+    {
+        if (execve(cmd_path, parsed_command, environ) == -1)
+        {
+            perror("execve");
+            exit(EXIT_FAILURE); // Make sure to exit to prevent the child from continuing.
+        }
+    }
+    else // Parent process
+    {
+        int status;
+        do
+        {
+            waitpid(pid, &status, 0);
+        } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+    }
+
+    free(cmd_path); // Free the command path only in the parent process.
 }
