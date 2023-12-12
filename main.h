@@ -13,13 +13,14 @@
 #include <stddef.h>
 #include <string.h>
 #include <stdbool.h>
-
+#include <ctype.h>
 /*---------FUNCTIONS---------*/
 
 char *read_user_input();
 char **parse_input(char *input_line);
 void execute_command(char **parsed_command);
 char *find_command_in_path(char *command);
+int is_empty(const char *str);
 
 
 /*---------THE_END----------*/

@@ -20,7 +20,11 @@ int main()
 			printf("\n");
 			break;
 		}
-
+		if (is_empty(input_line))
+		{
+			free(input_line);
+			continue;
+		}
 		if (strcmp(input_line, "exit\n") == 0)
 		{
 			free(input_line);
