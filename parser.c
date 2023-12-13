@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * Functions for parsing commands, analysis and converting
+ * parse_input - chaussure
  * strtok is here to split string into tokens
  * separated by whitespaces
  */
