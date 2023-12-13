@@ -2,7 +2,7 @@
 
 /**
  * parse_input - chaussure
- * strtok is here to split string into tokens
+ * @input_line: chaussure
  * separated by whitespaces
  */
 
