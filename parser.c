@@ -3,7 +3,7 @@
 /**
  * parse_input - chaussure
  * @input_line: chaussure
- * separated by whitespaces
+ * Return: chaussure 
  */
 
 char **parse_input(char *input_line)
