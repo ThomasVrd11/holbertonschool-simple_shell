@@ -27,7 +27,7 @@ char **parse_input(char *input_line)
 		if (position >= buffsize)
 		{
 			buffsize += 64;
-			tokens = realloc(tokens, buffsize *sizeof(char *));
+			tokens = realloc(tokens, buffsize * sizeof(char *));
 
 			if (!tokens)
 			{
