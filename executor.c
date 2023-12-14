@@ -35,19 +35,17 @@ char *find_command_in_path(char *command)
         sprintf(full_path, "%s/%s", directory, command);
         if (stat(full_path, &statbuf) == 0 && S_ISREG(statbuf.st_mode) && (statbuf.st_mode & S_IXUSR))
         {
-            break; // Command found, break the loop.
+            break;
         }
 
         free(full_path);
-        full_path = NULL; // Reset full_path to NULL after freeing to avoid double free.
+        full_path = NULL;
         directory = strtok_r(NULL, ":", &saveptr);
     }
 
     free(path_copie);
-    return full_path; // full_path will be NULL if command is not found.
+    return full_path;
 }
-
-
 /**
  * execute_command - chaussure
  * @parsed_command: chaussure
