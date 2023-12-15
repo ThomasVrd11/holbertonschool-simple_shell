@@ -1,11 +1,10 @@
 #include "main.h"
+extern char **environ;
 
 /**
  * 
  * exit_shell - Exits shell when typing exit
 */
-
-extern char **environ;
 
 void exit_shell(void)
 {
