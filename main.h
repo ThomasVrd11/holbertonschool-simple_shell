@@ -21,7 +21,7 @@ char **parse_input(char *input_line);
 void execute_command(char **parsed_command);
 char *find_command_in_path(char *command);
 int is_empty(const char *str);
-
+void print_env(void);
 
 /*---------THE_END----------*/
 

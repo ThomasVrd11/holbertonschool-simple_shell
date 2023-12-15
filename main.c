@@ -2,7 +2,7 @@
 
 /**
  * main - function for shell program
- * Return: 0 if the programe runs correctly, otherwise error message ()
+ * Return: 0 if the program runs correctly, otherwise error message ()
  */
 
 int main(void)
@@ -27,21 +27,28 @@ int main(void)
 			free(input_line);
 			continue;
 		}
-		if (strcmp(input_line, "exit") == 0)
-		{
-			free(input_line);
-			break;
-		}
+
 		parsed_command = parse_input(input_line);
 
-		if (parsed_command[0])
+		if (strcmp(parsed_command[0], "exit") == 0)
+		{
+			free(input_line);
+			free(parsed_command);
+			break;
+		}
+		else if (strcmp(parsed_command[0], "env") == 0)
+		{
+			print_env();
+		}
+		else if (parsed_command[0])
 		{
 			execute_command(parsed_command);
 		}
 		else
 		{
-			printf("Error: Command not found");
+			printf("Error: Command not found\n");
 		}
+
 		free(parsed_command);
 		free(input_line);
 	}
