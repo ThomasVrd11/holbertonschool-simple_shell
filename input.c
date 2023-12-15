@@ -5,7 +5,7 @@
  * Return: Chaussure
  */
 
-char *read_user_input()
+char *read_user_input(void)
 {
 	char *input = NULL;
 	size_t buffer_size = 0;

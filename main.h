@@ -16,7 +16,7 @@
 #include <ctype.h>
 /*---------FUNCTIONS---------*/
 
-char *read_user_input();
+char *read_user_input(void);
 char **parse_input(char *input_line);
 void execute_command(char **parsed_command);
 char *find_command_in_path(char *command);
