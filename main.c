@@ -32,13 +32,11 @@ int main(void)
 
 		if (strcmp(parsed_command[0], "exit") == 0)
 		{
-			free(input_line);
-			free(parsed_command);
-			break;
+			exit_shell();
 		}
 		else if (strcmp(parsed_command[0], "env") == 0)
 		{
-			print_env();
+			env_variables();
 		}
 		else if (parsed_command[0])
 		{
