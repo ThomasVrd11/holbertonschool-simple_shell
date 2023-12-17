@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * create_command_path - Creates a command path from the command input
