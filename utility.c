@@ -2,7 +2,7 @@
 
 /**
  * is_empty - chaussure
- * @str: chaussure
+ * @str: chaussure2
  * Return: chaussure
  */
 
