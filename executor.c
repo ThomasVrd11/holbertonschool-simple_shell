@@ -8,14 +8,19 @@
 char *create_command_path(char *command)
 {
 	char *cmd_path;
+	size_t len;
 
 	if (command[0] == '/')
 	{
-		cmd_path = strdup(command);
+		len = strlen(command) + 1;
+		cmd_path = malloc(len);
 		if (!cmd_path)
 		{
-			perror("strdup");
+			perror("malloc");
+			return (NULL);
 		}
+
+		strcpy(cmd_path, command);
 	}
 	else
 	{
@@ -44,6 +49,7 @@ void execute_in_child(char *cmd_path, char **parsed_command)
 /**
  * execute_command - Forks the current process and executes a command
  * @parsed_command: The parsed command with all arguments
+ * @program_name: The name of the program
  */
 void execute_command(char **parsed_command, char *program_name)
 {
