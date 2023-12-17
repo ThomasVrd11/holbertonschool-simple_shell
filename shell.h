@@ -18,12 +18,15 @@
 
 char *read_user_input(void);
 char **parse_input(char *input_line);
-void execute_command(char **parsed_command, char *program_name);
+void execute_command(char **parsed_command, char *program_name, char **env);
 char *find_command_in_path(char *command);
 int is_empty(const char *str);
 void exit_shell(void);
-void env_variables(void);
+void env_variables(char **env);
+void execute_command(char **parsed_command, char *program_name, char **env);
 extern char **environ;
+char *create_command_path(char *command);
+
 
 /*---------THE_END----------*/
 

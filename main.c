@@ -34,11 +34,11 @@ int main(int argc, char **argv)
 		}
 		else if (strcmp(parsed_command[0], "env") == 0)
 		{
-			env_variables();
+			env_variables(environ);
 		}
 		else if (parsed_command[0])
 		{
-			execute_command(parsed_command, argv[0]);
+			execute_command(parsed_command, argv[0], environ);
 		}
 		free(parsed_command);
 		free(input_line);

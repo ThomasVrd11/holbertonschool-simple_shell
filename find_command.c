@@ -8,7 +8,8 @@
 char *find_command_in_path(char *command)
 {
 	char *path = getenv("PATH");
-	char *path_copie = strdup(path);
+	size_t path_len = strlen(path);
+	char *path_copie = malloc(path_len + 1);
 	char *saveptr;
 	char *directory;
 	char *f_path = NULL;
@@ -16,9 +17,10 @@ char *find_command_in_path(char *command)
 
 	if (!path_copie)
 	{
-		perror("strdup");
+		perror("malloc");
 		return (NULL);
 	}
+	memcpy(path_copie, path, path_len + 1);
 	directory = strtok_r(path_copie, ":", &saveptr);
 	while (directory != NULL)
 	{

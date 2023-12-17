@@ -6,12 +6,12 @@
  * Return: chaussure
  */
 
-
 int is_empty(const char *str)
 {
 	while (*str != '\0')
 	{
-		if (!isspace((unsigned char) *str))
+		if (*str != ' ' && *str != '\t' && *str != '\n' &&
+			*str != '\r' && *str != '\f' && *str != '\v')
 			return (0);
 		str++;
 	}

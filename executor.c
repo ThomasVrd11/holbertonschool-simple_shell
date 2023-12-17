@@ -34,11 +34,12 @@ char *create_command_path(char *command)
  * execute_in_child - Executes a command in the child process
  * @cmd_path: The path command to be executed
  * @parsed_command: The parsed command with all arguments
+ * @env: The environment
  */
-void execute_in_child(char *cmd_path, char **parsed_command)
+void execute_in_child(char *cmd_path, char **parsed_command, char **env)
 {
 
-	if (execve(cmd_path, parsed_command, environ) == -1)
+	if (execve(cmd_path, parsed_command, env) == -1)
 	{
 		perror("execve");
 		free(cmd_path);
@@ -50,8 +51,9 @@ void execute_in_child(char *cmd_path, char **parsed_command)
  * execute_command - Forks the current process and executes a command
  * @parsed_command: The parsed command with all arguments
  * @program_name: The name of the program
+ * @env: The environment
  */
-void execute_command(char **parsed_command, char *program_name)
+void execute_command(char **parsed_command, char *program_name, char **env)
 {
 	char *cmd_path = create_command_path(parsed_command[0]);
 	pid_t pid;
@@ -70,7 +72,7 @@ void execute_command(char **parsed_command, char *program_name)
 	}
 	else if (pid == 0)
 	{
-		execute_in_child(cmd_path, parsed_command);
+		execute_in_child(cmd_path, parsed_command, env);
 	}
 	else
 	{

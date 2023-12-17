@@ -14,13 +14,14 @@ void exit_shell(void)
  *
  * Description: Prints all the environment variables available
  * when the user types the 'env' command.
+ * @env: the environment
  */
-void env_variables(void)
+void env_variables(char **env)
 {
 	int i = 0;
 
-	for (i = 0; environ[i] != NULL; i++)
+	for (i = 0; env[i] != NULL; i++)
 	{
-		printf("%s\n", environ[i]);
+		printf("%s\n", env[i]);
 	}
 }
