@@ -1,10 +1,8 @@
 #include "main.h"
-
 /**
  * main - function for shell program
  * Return: 0 if the program runs correctly, otherwise error message ()
  */
-
 int main(void)
 {
 	char *input_line;
@@ -14,7 +12,6 @@ int main(void)
 	{
 		printf("(๑˃ᴗ˂)ﻭ ");
 		input_line = read_user_input();
-
 		if (!input_line)
 		{
 			printf("\n");
@@ -27,9 +24,7 @@ int main(void)
 			free(input_line);
 			continue;
 		}
-
 		parsed_command = parse_input(input_line);
-
 		if (strcmp(parsed_command[0], "exit") == 0)
 		{
 			exit_shell();
@@ -46,7 +41,6 @@ int main(void)
 		{
 			printf("Error: Command not found\n");
 		}
-
 		free(parsed_command);
 		free(input_line);
 	}

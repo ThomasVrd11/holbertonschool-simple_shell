@@ -23,6 +23,7 @@ char *find_command_in_path(char *command);
 int is_empty(const char *str);
 void exit_shell(void);
 void env_variables(void);
+extern char **environ;
 
 /*---------THE_END----------*/
 

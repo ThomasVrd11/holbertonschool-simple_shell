@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * find_command_in_path - chaussure
  * @command: chaussure
@@ -12,7 +11,7 @@ char *find_command_in_path(char *command)
 	char *path_copie = strdup(path);
 	char *saveptr;
 	char *directory;
-	char *full_path = NULL;
+	char *f_path = NULL;
 	struct stat statbuf;
 
 	if (!path_copie)
@@ -20,28 +19,26 @@ char *find_command_in_path(char *command)
 		perror("strdup");
 		return (NULL);
 	}
-
 	directory = strtok_r(path_copie, ":", &saveptr);
 	while (directory != NULL)
 	{
-		full_path = malloc(strlen(directory) + strlen(command) + 2);
-		if (full_path == NULL)
+		f_path = malloc(strlen(directory) + strlen(command) + 2);
+		if (f_path == NULL)
 		{
 			perror("malloc");
 			free(path_copie);
 			return (NULL);
 		}
-		sprintf(full_path, "%s/%s", directory, command);
-		if (stat(full_path, &statbuf) == 0 && S_ISREG(statbuf.st_mode) && (statbuf.st_mode & S_IXUSR))
+		sprintf(f_path, "%s/%s", directory, command);
+		if (stat(f_path, &statbuf) == 0 && S_ISREG(statbuf.st_mode) &&
+		(statbuf.st_mode & S_IXUSR))
 		{
 			break;
 		}
-
-		free(full_path);
-		full_path = NULL;
+		free(f_path);
+		f_path = NULL;
 		directory = strtok_r(NULL, ":", &saveptr);
 	}
-
 	free(path_copie);
-	return full_path;
+	return (f_path);
 }
