@@ -1,12 +1,15 @@
 #include "main.h"
 /**
  * main - function for shell program
+ * @argc: argument count
+ * @argv: command line arguments
  * Return: 0 if the program runs correctly, otherwise error message ()
  */
-int main(void)
+int main(int argc, char **argv)
 {
 	char *input_line;
 	char **parsed_command;
+	(void)argc;
 
 	while (1)
 	{
@@ -35,11 +38,7 @@ int main(void)
 		}
 		else if (parsed_command[0])
 		{
-			execute_command(parsed_command);
-		}
-		else
-		{
-			printf("Error: Command not found\n");
+			execute_command(parsed_command, argv[0]);
 		}
 		free(parsed_command);
 		free(input_line);

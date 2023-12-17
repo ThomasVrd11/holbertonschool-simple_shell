@@ -45,7 +45,7 @@ void execute_in_child(char *cmd_path, char **parsed_command)
  * execute_command - Forks the current process and executes a command
  * @parsed_command: The parsed command with all arguments
  */
-void execute_command(char **parsed_command)
+void execute_command(char **parsed_command, char *program_name)
 {
 	char *cmd_path = create_command_path(parsed_command[0]);
 	pid_t pid;
@@ -53,7 +53,7 @@ void execute_command(char **parsed_command)
 
 	if (!cmd_path)
 	{
-		printf("Command not found.\n");
+		fprintf(stderr, "%s: %s: not found\n", program_name, parsed_command[0]);
 		return;
 	}
 
