@@ -1,46 +1,67 @@
 #include "shell.h"
+
 /**
- * find_command_in_path - chaussure
- * @command: chaussure
- * Return: chaussure
+ * check_command_path - Checks if a command exists in a directory
+ * @dir: Directory to check command
+ * @command: Command
+ * Return: Full path to command if found, NULL if not
  */
-
-char *find_command_in_path(char *command)
+char *check_command_path(const char *dir, const char *command)
 {
-	char *path = getenv("PATH");
-	size_t path_len = strlen(path);
-	char *path_copie = malloc(path_len + 1);
-	char *saveptr;
-	char *directory;
-	char *f_path = NULL;
+	char *full_path;
 	struct stat statbuf;
+	size_t length = strlen(dir) + strlen(command) + 2;
 
-	if (!path_copie)
+	full_path = malloc(length);
+	if (!full_path)
 	{
 		perror("malloc");
 		return (NULL);
 	}
-	memcpy(path_copie, path, path_len + 1);
-	directory = strtok_r(path_copie, ":", &saveptr);
-	while (directory != NULL)
+
+	sprintf(full_path, "%s/%s", dir, command);
+	if (stat(full_path, &statbuf) == 0 &&
+	S_ISREG(statbuf.st_mode) && (statbuf.st_mode & S_IXUSR))
 	{
-		f_path = malloc(strlen(directory) + strlen(command) + 2);
-		if (f_path == NULL)
-		{
-			perror("malloc");
-			free(path_copie);
-			return (NULL);
-		}
-		sprintf(f_path, "%s/%s", directory, command);
-		if (stat(f_path, &statbuf) == 0 && S_ISREG(statbuf.st_mode) &&
-		(statbuf.st_mode & S_IXUSR))
+		return (full_path);
+	}
+
+	free(full_path);
+	return (NULL);
+}
+
+/**
+ * find_command_in_path - Searches for the command in PATH
+ * @command: Command to find
+ * Return: Path to command if found, NULL if not
+ */
+char *find_command_in_path(char *command)
+{
+	char *path, *path_copy, *token, *saveptr, *cmd_path = NULL;
+
+	path = getenv("PATH");
+	if (!path)
+	{
+		return (NULL);
+	}
+
+	path_copy = strdup(path);
+	if (!path_copy)
+	{
+		perror("strdup");
+		return (NULL);
+	}
+
+	for (token = strtok_r(path_copy, ":", &saveptr); token != NULL;
+	token = strtok_r(NULL, ":", &saveptr))
+	{
+		cmd_path = check_command_path(token, command);
+		if (cmd_path)
 		{
 			break;
 		}
-		free(f_path);
-		f_path = NULL;
-		directory = strtok_r(NULL, ":", &saveptr);
 	}
-	free(path_copie);
-	return (f_path);
+
+	free(path_copy);
+	return (cmd_path);
 }

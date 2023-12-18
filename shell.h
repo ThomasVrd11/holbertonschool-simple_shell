@@ -28,7 +28,7 @@ extern char **environ;
 char *create_command_path(char *command);
 void prompt_and_read_input(char **input_line);
 void process_command(char *input_line, char **argv, char **env);
-
+char *check_command_path(const char *dir, const char *command);
 
 /*---------THE_END----------*/
 
