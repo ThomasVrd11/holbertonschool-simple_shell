@@ -26,6 +26,8 @@ void env_variables(char **env);
 void execute_command(char **parsed_command, char *program_name, char **env);
 extern char **environ;
 char *create_command_path(char *command);
+void prompt_and_read_input(char **input_line);
+void process_command(char *input_line, char **argv, char **env);
 
 
 /*---------THE_END----------*/
