@@ -6,7 +6,6 @@
  */
 void exit_shell(void)
 {
-	cleanup_ressources();
 	exit(EXIT_SUCCESS);
 }
 
