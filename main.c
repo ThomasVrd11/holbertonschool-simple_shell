@@ -6,6 +6,7 @@
  * @argv: command line arguments array
  * Return: 0 if successful exit
 */
+
 int main(int argc, char **argv)
 {
 	char *input_line;
