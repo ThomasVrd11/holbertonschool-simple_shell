@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>Simple Shell <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Terminalicon2.png/768px-Terminalicon2.png" width=44440 align=center> </h1>
+    <h1>Simple Shell <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Terminalicon2.png/768px-Terminalicon2.png" width=40 align=center> </h1>
     <h6>
     <a href="https://github.com/ThomasVrd11/holbertonschool-simple_shell#introduction-">Intro</a>
     ·
