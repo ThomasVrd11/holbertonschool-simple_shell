@@ -26,7 +26,8 @@ void prompt_and_read_input(char **input_line)
 void process_command(char *input_line, char **argv, char **env)
 {
 	char **parsed_command;
-	int i;
+	int i = 0;
+
 	input_line[strcspn(input_line, "\n")] = 0;
 
 	if (!is_empty(input_line))
@@ -46,7 +47,7 @@ void process_command(char *input_line, char **argv, char **env)
 		}
 		else if (parsed_command)
 		{
-			for (int i = 0; parsed_command[i] != NULL; i++)
+			for (i = 0; parsed_command[i] != NULL; i++)
 			{
 				free(parsed_command[i]);
 			}
