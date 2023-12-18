@@ -1,23 +1,22 @@
 <div align="center">
     <h1>Simple Shell </h1>
     <h6>
-    <a href="https://github.com/ThomasVrd11/holbertonschool-simple_shell#introduction-">Intro</a>
+    <a href="#introduction">Intro</a>
     ·
-    <a href="https://github.com/ThomasVrd11/holbertonschool-simple_shell#list-of-allowed-functions-and-system-calls-">Allowed Functions</a>
+    <a href="#usage">Usage</a>
     ·
-    <a href="https://github.com/ThomasVrd11/holbertonschool-simple_shell#usage-">Usage</a>
+    <a href="#howto">Use it</a>
     ·
-    <a href="https://github.com/ThomasVrd11/holbertonschool-simple_shell#how-to-use-it-">Use it</a>
-    ·
-    <a href="https://github.com/ThomasVrd11/holbertonschool-simple_shell#authors-">Authors</a>
+    <a href="#authors">Authors</a>
   </h6>
 </div>
 
-## Introduction
+<h2 id="introduction">Introduction</h2>
 
 This is a Holberton School project that consists of making our own simple shell with a limited amount of functions from the standard library.
 
-### List of allowed functions and system calls
+## List of allowed functions and system calls
+
 * access (man 2 access)
 * chdir (man 2 chdir)
 * close (man 2 close)
@@ -50,7 +49,7 @@ This is a Holberton School project that consists of making our own simple shell 
 * wait4 (man 2 wait4)
 * write (man 2 write)
 
-## Usage
+<h2 id="introduction">Introduction</h2>
 
 To use this program:
 
@@ -62,10 +61,9 @@ Compile it with
 
     gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o my_shell
 
-### How to use it
+<h2 id="howto">How to use it</h2>
 
 In order to use this shell, in a terminal, first run the program:
-
 `./my_shell`
 
 It will then display a simple prompt and wait for commands.
@@ -88,7 +86,7 @@ Exemple 2 :
     Exits the shell
 * pwd  
     Print the full path of the current/working directory
-## Authors
+<h2 id="authors">Authors</h2>
 
 - [Thomas VIARD](https://github.com/ThomasVrd11)
 - [François COLAS](https://github.com/fgmcolas)
