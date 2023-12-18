@@ -49,7 +49,7 @@ This is a Holberton School project that consists of making our own simple shell 
 * wait4 (man 2 wait4)
 * write (man 2 write)
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="usage">Usage</h2>
 
 To use this program:
 
