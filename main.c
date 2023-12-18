@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * main - function for shell program
  * @argc: argument count
@@ -9,19 +10,20 @@ int main(int argc, char **argv)
 {
 	char *input_line;
 	char **parsed_command;
+	char *prompt = "(๑˃ᴗ˂)ﻭ ";
+	char *newline = "\n";
 	(void)argc;
 
 	while (1)
 	{
-		printf("(๑˃ᴗ˂)ﻭ ");
+		write(STDOUT_FILENO, prompt, strlen(prompt));
 		input_line = read_user_input();
 		if (!input_line)
 		{
-			printf("\n");
+			write(STDOUT_FILENO, newline, strlen(newline));
 			break;
 		}
 		input_line[strcspn(input_line, "\n")] = 0;
-
 		if (is_empty(input_line))
 		{
 			free(input_line);
