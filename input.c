@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * read_user_input - chaussure
- * Return: Chaussure
+ * read_user_input - reads a line from stedin, allocates memory for it
+ * Return: input
  */
 
 char *read_user_input(void)

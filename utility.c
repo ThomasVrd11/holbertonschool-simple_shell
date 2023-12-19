@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * is_empty - chaussure
- * @str: chaussure2
- * Return: chaussure
+ * is_empty - checks if the string is empty or contain whitespace
+ * @str: string to verify
+ * Return: one
  */
 
 int is_empty(const char *str)
