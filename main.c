@@ -1,7 +1,8 @@
 #include "shell.h"
 
 /**
- * main - entry point for our simple shell program
+ * main - entry point for our simple shell program, checks for interactive
+ *  or non-interactive
  * @argc: count of command line arguments
  * @argv: command line arguments array
  * Return: 0 if successful exit
