@@ -34,7 +34,6 @@ void process_command(char *input_line, char **argv, char **env)
 		parsed_command = parse_input(input_line);
 		if (strcmp(parsed_command[0], "exit") == 0)
 		{
-			free(input_line);
 			free(parsed_command);
 			exit_shell();
 		}
