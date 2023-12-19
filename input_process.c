@@ -48,4 +48,5 @@ void process_command(char *input_line, char **argv, char **env)
 		}
 		free(parsed_command);
 	}
+	free(input_line);
 }
