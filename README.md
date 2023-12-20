@@ -84,7 +84,8 @@ Usage: exit
 - Implement the env built-in, that prints the current environment
 
 # Flowchart
-![Alt text](<Image PNG-2.png>)
+<img width="583" alt="Image PNG" src="https://github.com/ThomasVrd11/holbertonschool-simple_shell/assets/146711276/1c9ac420-a2cf-41fe-8832-cceaf75576ca">
+
 
 ## Important functions quick description
 
