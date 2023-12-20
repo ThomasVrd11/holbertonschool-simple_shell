@@ -1,0 +1,51 @@
+.TH SIMPLE_SHELL 1 "20 December 2023" "version 1.0" "User Manual"
+.SH NAME
+simple_shell \- a basic command line interpreter.
+.SH SYNOPSIS
+.B simple_shell
+.RI [ options ]
+.SH DESCRIPTION
+.B simple_shell
+is a basic implementation of a command line interpreter (shell) in C. This program is part of a Holberton School project and provides a simple interface to interact with the operating system via a set of limited built-in functions.
+.SH FUNCTIONS
+.TP
+.B read_user_input()
+Reads input from the standard input.
+.TP
+.B parse_input()
+Splits input into a program and arguments.
+.TP
+.B find_command_in_path()
+Finds the full path of a command.
+.TP
+.B is_empty()
+Checks for an empty string.
+.TP
+.B exit_shell()
+Exits the shell.
+.TP
+.B env_variables()
+Displays environment variables.
+.TP
+.B execute_command()
+Executes a given command.
+.TP
+.B create_command_path()
+Creates a path for a command.
+.TP
+.B prompt_and_read_input()
+Prompts and reads user input.
+.TP
+.B process_command()
+Processes and executes a command.
+.TP
+.B check_command_path()
+Checks the path for a command.
+.SH OPTIONS
+This shell does not support options at the moment.
+.SH AUTHORS
+Written by the Holberton School cohort 22 students. ThomasVrd111 and fgmcolas.
+.SH "SEE ALSO"
+.B bash(1), sh(1), csh(1), tcsh(1)
+.SH BUGS
+No known bugs (for the moment).
