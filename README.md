@@ -83,6 +83,9 @@ Usage: exit
 - You don’t have to handle any argument to the built-in exit
 - Implement the env built-in, that prints the current environment
 
+# Flowchart
+![Example Image](Image PNG.png)
+
 ## Important functions quick description
 
 - read_user_input: Reads input from the user and returns it as a string.
